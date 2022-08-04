@@ -69,7 +69,7 @@ for riffobject in riffobjects:
 						outfile.write('\t\t' + str(riffobject[0].decode("utf-8")) + ' ' + str(riffobject[1]) + '\n')
 			else:
 				outfile.write('\t' + str(riffobject[0].decode("utf-8")) + ' ' + str(riffobject[1]) + '\n')
-	if riffobject[0] == b'CHNL':
+	elif riffobject[0] == b'CHNL':
 		outfile.write(str(riffobject[0].decode("utf-8")) + ' ' + bytes(riffobject[1][:4]).hex() + '\n')
 		chnldata = readriffdata(bytearray2BytesIO(riffobject[1]),8)
 		for riffobject in chnldata:
